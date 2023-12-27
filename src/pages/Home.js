@@ -20,6 +20,7 @@ const Home = () => {
   // console.log(blogs);
   return (
     <>
+    <h1>!! THIS PROJECT IS CURRENTLY UNDER DEVELOPMENT !!</h1>
       <NewBlog />
       <HomeCards />
       <hr />
