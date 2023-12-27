@@ -1,16 +1,35 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home";
+import Header from "./components/header/Header";
+import BlogState from "./context/blogs/BlogState";
+import Footer from "./components/footer/Footer";
 import ContentWrapper from "./components/contentWrapper/ContentWrapper";
+import NewBlog from "./components/newBlog/NewBlog";
+import WriteNewBlog from "./pages/writeNewBlog/WriteNewBlog";
+import DetailsPage from "./pages/detailsPage/DetailsPage";
 
 function App() {
   return (
-    <ContentWrapper>
-      <BrowserRouter>
-        <Routes>
-          <Route></Route>
-        </Routes>
-      </BrowserRouter>
-    </ContentWrapper>
+    //wrapping everything in BLogState to make states available to each and every state
+    <BlogState>
+      <ContentWrapper>
+        <BrowserRouter>
+          <Header />
+
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              exact
+              path="/writenewblog"
+              element={<WriteNewBlog />}
+            ></Route>
+            <Route exact path="/details/:id" element={<DetailsPage />}></Route>
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </ContentWrapper>
+    </BlogState>
   );
 }
 

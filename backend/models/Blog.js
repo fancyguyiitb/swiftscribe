@@ -3,6 +3,15 @@ const { Schema } = mongoose;
 
 //creating user schema
 const blogSchema = new Schema({
+    //declaring a foreign key, to basically associate blogs with a particular user
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+    },
+    // author: {
+    //     type: String,
+    //     required: true
+    // },
     title:{
         type: String,
         required: true

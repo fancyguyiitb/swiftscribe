@@ -1,0 +1,64 @@
+.topRow {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 10px 0;
+
+  .topHeading {
+    h1 {
+      position: absolute;
+      font-size: 29px;
+      font-weight: bold;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+    }
+  }
+
+  .loginButton {
+    position: absolute;
+    right: 0;
+    margin: 15px 0;
+
+    button {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      font-size: 13px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .Navbar {
+    margin: 40px 0px;
+    font-size: 15px;
+
+    li {
+      font-weight: 500;
+      margin: 0 20px;
+    }
+    nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+    }
+  }
+}

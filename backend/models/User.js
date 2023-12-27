@@ -23,5 +23,8 @@ const userSchema = new Schema({
         default: Date.now
     },
 });
-//exporting tje user schema
-module.exports = mongoose.model('user', userSchema);
+//exporting thee user schema
+const User = mongoose.model('user', userSchema);
+//creating indexes to prevent duplicate email entires
+User.createIndexes();
+module.exports = User;
