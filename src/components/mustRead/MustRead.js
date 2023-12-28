@@ -38,21 +38,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex]?.tag
                           ? mustReadBlogs[lastIndex]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex]?.title
                           ? mustReadBlogs[lastIndex]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex]?.description
                           ? mustReadBlogs[lastIndex]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"
@@ -84,21 +84,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex - 1]?.tag
                           ? mustReadBlogs[lastIndex - 1]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex - 1]?.title
                           ? mustReadBlogs[lastIndex - 1]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex - 1]?.description
                           ? mustReadBlogs[lastIndex - 1]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"
@@ -130,21 +130,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex - 2]?.tag
                           ? mustReadBlogs[lastIndex - 2]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex - 2]?.title
                           ? mustReadBlogs[lastIndex - 2]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex - 2]?.description
                           ? mustReadBlogs[lastIndex - 2]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"
@@ -176,21 +176,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex - 3]?.tag
                           ? mustReadBlogs[lastIndex - 3]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex - 3]?.title
                           ? mustReadBlogs[lastIndex - 3]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex - 3]?.description
                           ? mustReadBlogs[lastIndex - 3]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"
@@ -222,21 +222,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex - 4]?.tag
                           ? mustReadBlogs[lastIndex - 4]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex - 4]?.title
                           ? mustReadBlogs[lastIndex - 4]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex - 4]?.description
                           ? mustReadBlogs[lastIndex - 4]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"
@@ -268,21 +268,21 @@ const MustRead = () => {
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <button className="tagName btn-dark">
+                      {/* <button className="tagName btn-dark">
                         {mustReadBlogs[lastIndex - 5]?.tag
                           ? mustReadBlogs[lastIndex - 5]?.tag
                           : "Tag"}
-                      </button>
+                      </button> */}
                       <h5 className="fw-bold">
                         {mustReadBlogs[lastIndex - 5]?.title
                           ? mustReadBlogs[lastIndex - 5]?.title
                           : "Title Not Available"}
                       </h5>
-                      <p>
+                      {/* <p>
                         {mustReadBlogs[lastIndex - 5]?.description
                           ? mustReadBlogs[lastIndex - 5]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
-                      </p>
+                      </p> */}
                       <div className="readMore">
                         <a
                           className="btn btn-outline-dark"

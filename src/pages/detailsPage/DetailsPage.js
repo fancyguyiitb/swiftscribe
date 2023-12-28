@@ -30,13 +30,12 @@ const DetailsPage = () => {
                 : "Sorry, description not available"}
             </p>
           </div>
+          
         </div>
         <div className="col-md-6">
           <div className="posterDiv">
             <img
-              src={detailBlog?.imgUrl
-                ? detailBlog?.imgUrl
-                : placeholder}
+              src={detailBlog?.imgUrl ? detailBlog?.imgUrl : placeholder}
               alt=""
             />
           </div>
