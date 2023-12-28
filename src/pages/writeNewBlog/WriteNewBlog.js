@@ -11,13 +11,14 @@ const WriteNewBlog = () => {
     title: "",
     description: "",
     tag: "",
+    imgUrl: "",
   });
 
   const handleAddBlog = async (event) => {
     //to prevent page from reloading
     event.preventDefault();
 
-    await addBlog(blogToAdd.title, blogToAdd.description, blogToAdd.tag);
+    await addBlog(blogToAdd.title, blogToAdd.description, blogToAdd.tag, blogToAdd.imgUrl);
     //redirecting to homepage after adding the blog
     navigate("/")
   };

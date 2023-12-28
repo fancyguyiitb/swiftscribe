@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
+import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const HomeCards = () => {
   const context = useContext(contextValue);
@@ -11,16 +13,28 @@ const HomeCards = () => {
   //   getAllBlogs();
   // }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div className="homeCards">
       <div className="row">
         {/* left big card */}
-        <div className="card-left col-md-4">
+        <div
+          className="card-left col-md-4"
+          onClick={(event) => {
+            //preventing unexpected redirect issue
+            event.preventDefault();
+            navigate(`/blog/${blogs[lastIndex]._id}`);
+          }}
+        >
           <div
             className="card"
             style={{
-              background:
-                "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+              background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                blogs[lastIndex]?.imgUrl
+                  ? blogs[lastIndex]?.imgUrl
+                  : placeholder
+              }')`,
             }}
           >
             {/* <div className="card-category">City</div> */}
@@ -30,9 +44,13 @@ const HomeCards = () => {
               </button>
               {/* <button className="tagName btn-dark">Tag2 Here</button> */}
               <h2>
-                {blogs[lastIndex]?.title ? blogs[lastIndex]?.title : "Title Not Available"}
+                {blogs[lastIndex]?.title
+                  ? blogs[lastIndex]?.title
+                  : "Title Not Available"}
               </h2>
-              <p className="date">{new Date(blogs[lastIndex]?.date).toDateString()}</p>
+              <p className="date">
+                {new Date(blogs[lastIndex]?.date).toDateString()}
+              </p>
             </div>
             {/* <img
               className="card-user avatar avatar-large"
@@ -45,7 +63,14 @@ const HomeCards = () => {
           </div>
         </div>
 
-        <div className="card-left col-md-4">
+        <div
+          className="card-left col-md-4"
+          onClick={(event) => {
+            //preventing unexpected redirect issue
+            event.preventDefault();
+            navigate(`/blog/${blogs[lastIndex - 1]._id}`);
+          }}
+        >
           <div
             className="card"
             style={{
@@ -56,13 +81,17 @@ const HomeCards = () => {
             {/* <div className="card-category">City</div> */}
             <div className="card-description">
               <button className="tagName btn-dark">
-                {blogs[lastIndex-1]?.tag ? blogs[lastIndex-1]?.tag : "N/A"}
+                {blogs[lastIndex - 1]?.tag ? blogs[lastIndex - 1]?.tag : "N/A"}
               </button>
               {/* <button className="tagName btn-dark">Tag2 Here</button> */}
               <h2>
-                {blogs[lastIndex-1]?.title ? blogs[lastIndex-1]?.title : "Title Not Available"}
+                {blogs[lastIndex - 1]?.title
+                  ? blogs[lastIndex - 1]?.title
+                  : "Title Not Available"}
               </h2>
-              <p className="date">{new Date(blogs[lastIndex-1]?.date).toDateString()}</p>
+              <p className="date">
+                {new Date(blogs[lastIndex - 1]?.date).toDateString()}
+              </p>
             </div>
             {/* <img
               className="card-user avatar avatar-large"
@@ -75,7 +104,14 @@ const HomeCards = () => {
           </div>
         </div>
 
-        <div className="card-left col col-sm-12 col-md-4">
+        <div
+          className="card-left col col-sm-12 col-md-4"
+          onClick={(event) => {
+            //preventing unexpected redirect issue
+            event.preventDefault();
+            navigate(`/blog/${blogs[lastIndex - 2]._id}`);
+          }}
+        >
           <div
             className="card"
             style={{
@@ -86,13 +122,17 @@ const HomeCards = () => {
             {/* <div className="card-category">City</div> */}
             <div className="card-description">
               <button className="tagName btn-dark">
-                {blogs[lastIndex-2]?.tag ? blogs[lastIndex-2]?.tag : "N/A"}
+                {blogs[lastIndex - 2]?.tag ? blogs[lastIndex - 2]?.tag : "N/A"}
               </button>
               {/* <button className="tagName btn-dark">Tag2 Here</button> */}
               <h2>
-                {blogs[lastIndex-2]?.title ? blogs[lastIndex-2]?.title : "Title Not Available"}
+                {blogs[lastIndex - 2]?.title
+                  ? blogs[lastIndex - 2]?.title
+                  : "Title Not Available"}
               </h2>
-              <p className="date">{new Date(blogs[lastIndex-2]?.date).toDateString()}</p>
+              <p className="date">
+                {new Date(blogs[lastIndex - 2]?.date).toDateString()}
+              </p>
             </div>
             {/* <img
               className="card-user avatar avatar-large"

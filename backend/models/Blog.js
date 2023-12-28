@@ -8,10 +8,9 @@ const blogSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     },
-    // author: {
-    //     type: String,
-    //     required: true
-    // },
+    imgUrl: {
+        type: String,
+    },
     title:{
         type: String,
         required: true

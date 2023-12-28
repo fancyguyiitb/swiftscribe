@@ -24,7 +24,7 @@ function App() {
               path="/writenewblog"
               element={<WriteNewBlog />}
             ></Route>
-            <Route exact path="/details/:id" element={<DetailsPage />}></Route>
+            <Route exact path="/blog/:id" element={<DetailsPage />}></Route>
           </Routes>
         </BrowserRouter>
         <Footer />

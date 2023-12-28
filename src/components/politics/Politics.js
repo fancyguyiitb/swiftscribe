@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
+import { useNavigate } from "react-router";
 
 const Politics = () => {
   const context = useContext(contextValue);
   const { blogs } = context;
 
+  const navigate = useNavigate();
+
   const poltBlogs = blogs.filter((item) => item.tag === "Politics");
+  const lastIndex = poltBlogs.length - 1;
 
   return (
     <>
@@ -22,20 +26,29 @@ const Politics = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{poltBlogs[0]?.tag
-                    ? poltBlogs[0]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {poltBlogs[lastIndex]?.tag
+                    ? poltBlogs[lastIndex]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {poltBlogs[0]?.title
-                    ? poltBlogs[0]?.title
+                  {poltBlogs[lastIndex]?.title
+                    ? poltBlogs[lastIndex]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {poltBlogs[0]?.description
-                    ? poltBlogs[0]?.description
+                  {poltBlogs[lastIndex]?.description
+                    ? poltBlogs[lastIndex]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${poltBlogs[lastIndex]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -49,20 +62,29 @@ const Politics = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{poltBlogs[1]?.tag
-                    ? poltBlogs[1]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {poltBlogs[lastIndex - 1]?.tag
+                    ? poltBlogs[lastIndex - 1]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {poltBlogs[1]?.title
-                    ? poltBlogs[1]?.title
+                  {poltBlogs[lastIndex - 1]?.title
+                    ? poltBlogs[lastIndex - 1]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {poltBlogs[1]?.description
-                    ? poltBlogs[1]?.description
+                  {poltBlogs[lastIndex - 1]?.description
+                    ? poltBlogs[lastIndex - 1]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${poltBlogs[lastIndex - 1]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -76,20 +98,29 @@ const Politics = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{poltBlogs[2]?.tag
-                    ? poltBlogs[2]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {poltBlogs[lastIndex - 2]?.tag
+                    ? poltBlogs[lastIndex - 2]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {poltBlogs[2]?.title
-                    ? poltBlogs[2]?.title
+                  {poltBlogs[lastIndex - 2]?.title
+                    ? poltBlogs[lastIndex - 2]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {poltBlogs[2]?.description
-                    ? poltBlogs[2]?.description
+                  {poltBlogs[lastIndex - 2]?.description
+                    ? poltBlogs[lastIndex - 2]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${poltBlogs[lastIndex - 2]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -103,20 +134,30 @@ const Politics = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{poltBlogs[3]?.tag
-                    ? poltBlogs[3]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {poltBlogs[lastIndex - 3]?.tag
+                    ? poltBlogs[lastIndex - 3]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {poltBlogs[3]?.title
-                    ? poltBlogs[3]?.title
+                  {poltBlogs[lastIndex - 3]?.title
+                    ? poltBlogs[lastIndex - 3]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {poltBlogs[3]?.description
-                    ? poltBlogs[3]?.description
+                  {poltBlogs[lastIndex - 3]?.description
+                    ? poltBlogs[lastIndex - 3]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  href="/"
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${poltBlogs[lastIndex - 3]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -125,7 +166,7 @@ const Politics = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Politics
+export default Politics;

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
+import { useNavigate } from "react-router";
 
 const MustRead = () => {
   const context = useContext(contextValue);
@@ -9,6 +10,8 @@ const MustRead = () => {
   // useEffect(() => {
   //   getAllBlogs();
   // }, []);
+
+  const navigate = useNavigate();
 
   const mustReadBlogs = blogs.filter((item) => item.tag === "Must Read");
   // console.log("Stocks: " + blogs);
@@ -48,7 +51,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>
@@ -85,7 +95,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex-1]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>
@@ -122,7 +139,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex-2]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>
@@ -159,7 +183,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex-3]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>
@@ -196,7 +227,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex-4]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>
@@ -233,7 +271,14 @@ const MustRead = () => {
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
-                        <a href="/" className="btn btn-outline-dark">
+                        <a
+                          className="btn btn-outline-dark"
+                          onClick={(event) => {
+                            //preventing unexpected redirect issue
+                            event.preventDefault();
+                            navigate(`/blog/${mustReadBlogs[lastIndex-5]._id}`);
+                          }}
+                        >
                           Read More
                         </a>
                       </div>

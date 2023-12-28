@@ -45,7 +45,7 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const { title, description, tag } = req.body;
+      const { title, description, tag, imgUrl } = req.body;
       const errors = validationResult(req);
       //displaying errors if any
       if (!errors.isEmpty()) {
@@ -56,6 +56,7 @@ router.post(
         title,
         description,
         tag,
+        imgUrl,
         user: req.user.id,
       });
 

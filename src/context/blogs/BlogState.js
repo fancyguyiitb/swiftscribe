@@ -27,7 +27,7 @@ const BlogState = (props) => {
   };
 
   //Add a new blog
-  const addBlog = async (title, description, tag) => {
+  const addBlog = async (title, description, tag, imgUrl) => {
     //API Call
     const response = await fetch(`${host}/api/blogs/newblog`, {
       method: "POST",
@@ -36,7 +36,7 @@ const BlogState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU4MjFjNjNiNjcwYmJkMWY0MDk3M2I0In0sImlhdCI6MTcwMzAyNTc2M30.RT1mvygdafEfm4d9xyAeg-dSwqiqX7XTtdwkGSPweLc",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, description, tag }),
+      body: JSON.stringify({ title, description, tag, imgUrl }),
     });
     //   const json = response.json();
     console.log("Adding note...");
@@ -46,6 +46,7 @@ const BlogState = (props) => {
       title: title,
       description: description,
       tag: tag,
+      imgUrl: imgUrl,
       date: "2023-12-24T10:10:43.409Z",
       __v: 0,
     };

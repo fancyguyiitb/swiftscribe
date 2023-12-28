@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
+import { useNavigate } from "react-router";
 
 const StockMarket = () => {
   const context = useContext(contextValue);
@@ -9,6 +10,7 @@ const StockMarket = () => {
   // useEffect(() => {
   //   getAllBlogs();
   // }, []);
+  const navigate = useNavigate();
 
   const stockBlogs = blogs.filter((item) => item.tag === "Stocks");
   const lastIndex = stockBlogs.length - 1;
@@ -27,20 +29,29 @@ const StockMarket = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{stockBlogs[lastIndex]?.tag
+                <button className="tagName btn-dark">
+                  {stockBlogs[lastIndex]?.tag
                     ? stockBlogs[lastIndex]?.tag
-                    : "Tag"}</button>
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
                   {stockBlogs[lastIndex]?.title
                     ? stockBlogs[lastIndex]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {stockBlogs[lastIndex]?.description
+                  {stockBlogs[lastIndex]?.description
                     ? stockBlogs[lastIndex]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${stockBlogs[lastIndex]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -54,20 +65,30 @@ const StockMarket = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{stockBlogs[lastIndex-1]?.tag
-                    ? stockBlogs[lastIndex-1]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {stockBlogs[lastIndex - 1]?.tag
+                    ? stockBlogs[lastIndex - 1]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                  {stockBlogs[lastIndex-1]?.title
-                    ? stockBlogs[lastIndex-1]?.title
+                  {stockBlogs[lastIndex - 1]?.title
+                    ? stockBlogs[lastIndex - 1]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {stockBlogs[lastIndex-1]?.description
-                    ? stockBlogs[lastIndex-1]?.description
+                  {stockBlogs[lastIndex - 1]?.description
+                    ? stockBlogs[lastIndex - 1]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  href="/"
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${stockBlogs[lastIndex - 1]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -81,20 +102,30 @@ const StockMarket = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{stockBlogs[lastIndex-2]?.tag
-                    ? stockBlogs[lastIndex-2]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {stockBlogs[lastIndex - 2]?.tag
+                    ? stockBlogs[lastIndex - 2]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {stockBlogs[lastIndex-2]?.title
-                    ? stockBlogs[lastIndex-2]?.title
+                  {stockBlogs[lastIndex - 2]?.title
+                    ? stockBlogs[lastIndex - 2]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {stockBlogs[lastIndex-2]?.description
-                    ? stockBlogs[lastIndex-2]?.description
+                  {stockBlogs[lastIndex - 2]?.description
+                    ? stockBlogs[lastIndex - 2]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  href="/"
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${stockBlogs[lastIndex - 2]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>
@@ -108,20 +139,30 @@ const StockMarket = () => {
                 alt="..."
               />
               <div className="card-body">
-                <button className="tagName btn-dark">{stockBlogs[lastIndex-3]?.tag
-                    ? stockBlogs[lastIndex-3]?.tag
-                    : "Tag"}</button>
+                <button className="tagName btn-dark">
+                  {stockBlogs[lastIndex - 3]?.tag
+                    ? stockBlogs[lastIndex - 3]?.tag
+                    : "Tag"}
+                </button>
                 <h5 className="card-title fw-bold">
-                {stockBlogs[lastIndex-3]?.title
-                    ? stockBlogs[lastIndex-3]?.title
+                  {stockBlogs[lastIndex - 3]?.title
+                    ? stockBlogs[lastIndex - 3]?.title
                     : "Title Not Available"}
                 </h5>
                 <p className="card-text">
-                {stockBlogs[lastIndex-3]?.description
-                    ? stockBlogs[lastIndex-3]?.description
+                  {stockBlogs[lastIndex - 3]?.description
+                    ? stockBlogs[lastIndex - 3]?.description
                     : "Description Not Available"}
                 </p>
-                <a href="/" className="btn btn-outline-dark">
+                <a
+                  href="/"
+                  className="btn btn-outline-dark"
+                  onClick={(event) => {
+                    //preventing unexpected redirect issue
+                    event.preventDefault();
+                    navigate(`/blog/${stockBlogs[lastIndex - 3]._id}`);
+                  }}
+                >
                   Read More
                 </a>
               </div>

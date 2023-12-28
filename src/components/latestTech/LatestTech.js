@@ -1,20 +1,30 @@
 import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
+import { useNavigate } from "react-router";
 
 const LatestTech = () => {
   const context = useContext(contextValue);
   const { blogs } = context;
 
+  const navigate = useNavigate();
+
   const techBlogs = blogs.filter((item) => item.tag === "Technology");
 
-  const lastIndex = blogs.length - 1;
+  const lastIndex = techBlogs.length - 1;
   return (
     <>
       <h3 className="fw-bold mb-4">Latest Technology</h3>
       <div className="techCards">
         <div className="row">
-          <div className="card-left col-md-6">
+          <div
+            className="card-left col-md-6"
+            onClick={(event) => {
+              //preventing unexpected redirect issue
+              event.preventDefault();
+              navigate(`/blog/${techBlogs[lastIndex]._id}`);
+            }}
+          >
             <div
               className="card"
               style={{
@@ -25,16 +35,18 @@ const LatestTech = () => {
               {/* <div className="card-category">City</div> */}
               <div className="card-description">
                 <button className="tagName btn-dark">
-                  {techBlogs[0]?.tag ? techBlogs[0]?.tag : "Tag"}
+                  {techBlogs[lastIndex]?.tag
+                    ? techBlogs[lastIndex]?.tag
+                    : "Tag"}
                 </button>
                 {/* <button className="tagName btn-dark">Tag2 Here</button> */}
                 <h2>
-                  {techBlogs[0]?.title
-                    ? techBlogs[0]?.title
+                  {techBlogs[lastIndex]?.title
+                    ? techBlogs[lastIndex]?.title
                     : "Title Not Available"}
                 </h2>
                 <p className="date">
-                  {new Date(techBlogs[0]?.date).toDateString()}
+                  {new Date(techBlogs[lastIndex]?.date).toDateString()}
                 </p>
               </div>
               {/* <img
@@ -47,7 +59,14 @@ const LatestTech = () => {
               </a>
             </div>
           </div>
-          <div className="card-left col-md-6">
+          <div
+            className="card-left col-md-6"
+            onClick={(event) => {
+              //preventing unexpected redirect issue
+              event.preventDefault();
+              navigate(`/blog/${techBlogs[lastIndex - 1]._id}`);
+            }}
+          >
             <div
               className="card"
               style={{
@@ -58,16 +77,18 @@ const LatestTech = () => {
               {/* <div className="card-category">City</div> */}
               <div className="card-description">
                 <button className="tagName btn-dark">
-                  {techBlogs[1]?.tag ? techBlogs[1]?.tag : "Tag"}
+                  {techBlogs[lastIndex - 1]?.tag
+                    ? techBlogs[lastIndex - 1]?.tag
+                    : "Tag"}
                 </button>
                 {/* <button className="tagName btn-dark">Tag2 Here</button> */}
                 <h2>
-                  {techBlogs[1]?.title
-                    ? techBlogs[1]?.title
+                  {techBlogs[lastIndex - 1]?.title
+                    ? techBlogs[lastIndex - 1]?.title
                     : "Title Not Available"}
                 </h2>
                 <p className="date">
-                  {new Date(techBlogs[1]?.date).toDateString()}
+                  {new Date(techBlogs[lastIndex - 1]?.date).toDateString()}
                 </p>
               </div>
               {/* <img
