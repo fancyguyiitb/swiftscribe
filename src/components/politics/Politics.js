@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const Politics = () => {
   const context = useContext(contextValue);
@@ -21,7 +22,9 @@ const Politics = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://cdn-eaekd.nitrocdn.com/CxTeoSPKdjdqTSxLEEGaKiGroHlKASqH/assets/mobile/optimized/rev-d765668/_pADGnJ4aLJKJRUEC0XWC7oI1MMIteokOL4BRQx05NqcUbDxyAsgNBPDj71zlOLr67HnmSkBIi6lkujtYuuQoQ6eDZLUC70KNW5ToZerVWOkQyQ9JPFa9okcNqbClJfcEnuzPjoByseg6bWEiKZw_84"
+                src={poltBlogs[lastIndex]?.imgUrl
+                  ? poltBlogs[lastIndex]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -38,7 +41,7 @@ const Politics = () => {
                 </h5>
                 <p className="card-text">
                   {poltBlogs[lastIndex]?.description
-                    ? poltBlogs[lastIndex]?.description
+                    ? poltBlogs[lastIndex]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -57,7 +60,9 @@ const Politics = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://cdn-eaekd.nitrocdn.com/CxTeoSPKdjdqTSxLEEGaKiGroHlKASqH/assets/mobile/optimized/rev-d765668/_pADGnJ4aLJKJRUEC0XWC7oI1MMIteokOL4BRQx05NqcUbDxyAsgNBPDj71zlOLr67HnmSkBIi6lkujtYuuQoQ6eDZLUC70KNW5ToZerVWOkQyQ9JPFa9okcNqbClJfcEnuzPjoByseg6bWEiKZw_84"
+                src={poltBlogs[lastIndex-1]?.imgUrl
+                  ? poltBlogs[lastIndex-1]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -74,7 +79,7 @@ const Politics = () => {
                 </h5>
                 <p className="card-text">
                   {poltBlogs[lastIndex - 1]?.description
-                    ? poltBlogs[lastIndex - 1]?.description
+                    ? poltBlogs[lastIndex - 1]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -93,7 +98,9 @@ const Politics = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://cdn-eaekd.nitrocdn.com/CxTeoSPKdjdqTSxLEEGaKiGroHlKASqH/assets/mobile/optimized/rev-d765668/_pADGnJ4aLJKJRUEC0XWC7oI1MMIteokOL4BRQx05NqcUbDxyAsgNBPDj71zlOLr67HnmSkBIi6lkujtYuuQoQ6eDZLUC70KNW5ToZerVWOkQyQ9JPFa9okcNqbClJfcEnuzPjoByseg6bWEiKZw_84"
+                src={poltBlogs[lastIndex-2]?.imgUrl
+                  ? poltBlogs[lastIndex-2]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -110,7 +117,7 @@ const Politics = () => {
                 </h5>
                 <p className="card-text">
                   {poltBlogs[lastIndex - 2]?.description
-                    ? poltBlogs[lastIndex - 2]?.description
+                    ? poltBlogs[lastIndex - 2]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -129,7 +136,9 @@ const Politics = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://cdn-eaekd.nitrocdn.com/CxTeoSPKdjdqTSxLEEGaKiGroHlKASqH/assets/mobile/optimized/rev-d765668/_pADGnJ4aLJKJRUEC0XWC7oI1MMIteokOL4BRQx05NqcUbDxyAsgNBPDj71zlOLr67HnmSkBIi6lkujtYuuQoQ6eDZLUC70KNW5ToZerVWOkQyQ9JPFa9okcNqbClJfcEnuzPjoByseg6bWEiKZw_84"
+                src={poltBlogs[lastIndex-3]?.imgUrl
+                  ? poltBlogs[lastIndex-3]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -146,7 +155,7 @@ const Politics = () => {
                 </h5>
                 <p className="card-text">
                   {poltBlogs[lastIndex - 3]?.description
-                    ? poltBlogs[lastIndex - 3]?.description
+                    ? poltBlogs[lastIndex - 3]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a

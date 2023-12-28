@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const StockMarket = () => {
   const context = useContext(contextValue);
@@ -24,7 +25,9 @@ const StockMarket = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                src={stockBlogs[lastIndex]?.imgUrl
+                  ? stockBlogs[lastIndex]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -41,7 +44,7 @@ const StockMarket = () => {
                 </h5>
                 <p className="card-text">
                   {stockBlogs[lastIndex]?.description
-                    ? stockBlogs[lastIndex]?.description
+                    ? stockBlogs[lastIndex]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -60,7 +63,9 @@ const StockMarket = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                src={stockBlogs[lastIndex-1]?.imgUrl
+                  ? stockBlogs[lastIndex-1]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -77,7 +82,7 @@ const StockMarket = () => {
                 </h5>
                 <p className="card-text">
                   {stockBlogs[lastIndex - 1]?.description
-                    ? stockBlogs[lastIndex - 1]?.description
+                    ? stockBlogs[lastIndex - 1]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -97,7 +102,9 @@ const StockMarket = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                src={stockBlogs[lastIndex-2]?.imgUrl
+                  ? stockBlogs[lastIndex-2]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -114,7 +121,7 @@ const StockMarket = () => {
                 </h5>
                 <p className="card-text">
                   {stockBlogs[lastIndex - 2]?.description
-                    ? stockBlogs[lastIndex - 2]?.description
+                    ? stockBlogs[lastIndex - 2]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a
@@ -134,7 +141,9 @@ const StockMarket = () => {
           <div className="col-md-3 col-sm-12 card-col">
             <div className="card">
               <img
-                src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                src={stockBlogs[lastIndex-3]?.imgUrl
+                  ? stockBlogs[lastIndex-3]?.imgUrl
+                  : placeholder}
                 className="card-img-top"
                 alt="..."
               />
@@ -151,7 +160,7 @@ const StockMarket = () => {
                 </h5>
                 <p className="card-text">
                   {stockBlogs[lastIndex - 3]?.description
-                    ? stockBlogs[lastIndex - 3]?.description
+                    ? stockBlogs[lastIndex - 3]?.description.slice(0,300) + "..."
                     : "Description Not Available"}
                 </p>
                 <a

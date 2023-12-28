@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const MustRead = () => {
   const context = useContext(contextValue);
@@ -29,7 +30,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                      src={mustReadBlogs[lastIndex]?.imgUrl
+                        ? mustReadBlogs[lastIndex]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -47,7 +50,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex]?.description
-                          ? mustReadBlogs[lastIndex]?.description
+                          ? mustReadBlogs[lastIndex]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
@@ -73,7 +76,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                      src={mustReadBlogs[lastIndex-1]?.imgUrl
+                        ? mustReadBlogs[lastIndex]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -91,7 +96,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex - 1]?.description
-                          ? mustReadBlogs[lastIndex - 1]?.description
+                          ? mustReadBlogs[lastIndex - 1]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
@@ -117,7 +122,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                       src={mustReadBlogs[lastIndex-2]?.imgUrl
+                        ? mustReadBlogs[lastIndex-2]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -135,7 +142,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex - 2]?.description
-                          ? mustReadBlogs[lastIndex - 2]?.description
+                          ? mustReadBlogs[lastIndex - 2]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
@@ -161,7 +168,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                       src={mustReadBlogs[lastIndex-3]?.imgUrl
+                        ? mustReadBlogs[lastIndex-3]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -179,7 +188,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex - 3]?.description
-                          ? mustReadBlogs[lastIndex - 3]?.description
+                          ? mustReadBlogs[lastIndex - 3]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
@@ -205,7 +214,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                       src={mustReadBlogs[lastIndex-4]?.imgUrl
+                        ? mustReadBlogs[lastIndex-4]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -223,7 +234,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex - 4]?.description
-                          ? mustReadBlogs[lastIndex - 4]?.description
+                          ? mustReadBlogs[lastIndex - 4]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">
@@ -249,7 +260,9 @@ const MustRead = () => {
                   <div className="col-sm-5">
                     <img
                       className="d-block w-100"
-                      src="https://picsum.photos/150?image=641"
+                       src={mustReadBlogs[lastIndex-5]?.imgUrl
+                        ? mustReadBlogs[lastIndex-5]?.imgUrl
+                        : placeholder}
                       alt=""
                     />
                   </div>
@@ -267,7 +280,7 @@ const MustRead = () => {
                       </h5>
                       <p>
                         {mustReadBlogs[lastIndex - 5]?.description
-                          ? mustReadBlogs[lastIndex - 5]?.description
+                          ? mustReadBlogs[lastIndex - 5]?.description.slice(0,300) + "..."
                           : "Description Not Available"}
                       </p>
                       <div className="readMore">

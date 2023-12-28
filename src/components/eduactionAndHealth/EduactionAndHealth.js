@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const EduactionAndHealth = () => {
   const context = useContext(contextValue);
@@ -32,8 +33,11 @@ const EduactionAndHealth = () => {
                   <div
                     className="card"
                     style={{
-                      background:
-                        "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+                      background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                        educationBlogs[lastEducationIndex]?.imgUrl
+                          ? educationBlogs[lastEducationIndex]?.imgUrl
+                          : placeholder
+                      }')`,
                     }}
                   >
                     {/* <div className="card-category">City</div> */}
@@ -70,7 +74,11 @@ const EduactionAndHealth = () => {
                   <div className="card-bottom col-md-6 col-sm-12 card-col">
                     <div className="card">
                       <img
-                        src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                        src={
+                          educationBlogs[lastEducationIndex - 1]?.imgUrl
+                            ? educationBlogs[lastEducationIndex - 1]?.imgUrl
+                            : placeholder
+                        }
                         className="card-img-top"
                         alt="..."
                       />
@@ -87,8 +95,9 @@ const EduactionAndHealth = () => {
                         </h5>
                         <p className="card-text">
                           {educationBlogs[lastEducationIndex - 1]?.description
-                            ? educationBlogs[lastEducationIndex - 1]
-                                ?.description
+                            ? educationBlogs[
+                                lastEducationIndex - 1
+                              ]?.description.slice(0, 300) + "..."
                             : "Description Not Available"}
                         </p>
                         <a
@@ -112,7 +121,11 @@ const EduactionAndHealth = () => {
                   <div className="card-bottom col-md-6 col-sm-12 card-col">
                     <div className="card">
                       <img
-                        src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                        src={
+                          educationBlogs[lastEducationIndex - 2]?.imgUrl
+                            ? educationBlogs[lastEducationIndex - 2]?.imgUrl
+                            : placeholder
+                        }
                         className="card-img-top"
                         alt="..."
                       />
@@ -129,8 +142,9 @@ const EduactionAndHealth = () => {
                         </h5>
                         <p className="card-text">
                           {educationBlogs[lastEducationIndex - 2]?.description
-                            ? educationBlogs[lastEducationIndex - 2]
-                                ?.description
+                            ? educationBlogs[
+                                lastEducationIndex - 2
+                              ]?.description.slice(0, 300) + "..."
                             : "Description Not Available"}
                         </p>
                         <a
@@ -174,8 +188,11 @@ const EduactionAndHealth = () => {
                   <div
                     className="card"
                     style={{
-                      background:
-                        "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+                      background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                        healthBlogs[lastHealthIndex]?.imgUrl
+                          ? healthBlogs[lastHealthIndex]?.imgUrl
+                          : placeholder
+                      }')`,
                     }}
                   >
                     {/* <div className="card-category">City</div> */}
@@ -212,7 +229,11 @@ const EduactionAndHealth = () => {
                   <div className="card-bottom col-md-6 col-sm-6 card-col">
                     <div className="card">
                       <img
-                        src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                        src={
+                          healthBlogs[lastHealthIndex - 1]?.imgUrl
+                            ? healthBlogs[lastHealthIndex - 1]?.imgUrl
+                            : placeholder
+                        }
                         className="card-img-top"
                         alt="..."
                       />
@@ -229,7 +250,7 @@ const EduactionAndHealth = () => {
                         </h5>
                         <p className="card-text">
                           {healthBlogs[lastHealthIndex - 1]?.description
-                            ? healthBlogs[lastHealthIndex - 1]?.description
+                            ? healthBlogs[lastHealthIndex - 1]?.description.slice(0,300) + "..."
                             : "Description Not Available"}
                         </p>
                         <a
@@ -251,7 +272,11 @@ const EduactionAndHealth = () => {
                   <div className="card-bottom col-md-6 col-sm-6 card-col">
                     <div className="card">
                       <img
-                        src="https://www.livemint.com/lm-img/img/2023/12/20/600x338/MarketUnsplash_1685699235833_1703065712219.jpg"
+                        src={
+                          healthBlogs[lastHealthIndex - 2]?.imgUrl
+                            ? healthBlogs[lastHealthIndex - 2]?.imgUrl
+                            : placeholder
+                        }
                         className="card-img-top"
                         alt="..."
                       />
@@ -268,7 +293,7 @@ const EduactionAndHealth = () => {
                         </h5>
                         <p className="card-text">
                           {healthBlogs[lastHealthIndex - 2]?.description
-                            ? healthBlogs[lastHealthIndex - 2]?.description
+                            ? healthBlogs[lastHealthIndex - 2]?.description.slice(0,300) + "..."
                             : "Description Not Available"}
                         </p>
                         <a

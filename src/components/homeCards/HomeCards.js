@@ -74,8 +74,11 @@ const HomeCards = () => {
           <div
             className="card"
             style={{
-              background:
-                "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+              background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                blogs[lastIndex-1]?.imgUrl
+                  ? blogs[lastIndex-1]?.imgUrl
+                  : placeholder
+              }')`,
             }}
           >
             {/* <div className="card-category">City</div> */}
@@ -115,8 +118,11 @@ const HomeCards = () => {
           <div
             className="card"
             style={{
-              background:
-                "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+              background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                blogs[lastIndex-2]?.imgUrl
+                  ? blogs[lastIndex-2]?.imgUrl
+                  : placeholder
+              }')`,
             }}
           >
             {/* <div className="card-category">City</div> */}

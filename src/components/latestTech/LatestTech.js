@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./style.scss";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router";
+import placeholder from "../../assets/placeholder.jpg";
 
 const LatestTech = () => {
   const context = useContext(contextValue);
@@ -28,8 +29,11 @@ const LatestTech = () => {
             <div
               className="card"
               style={{
-                background:
-                  "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg')",
+                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                  techBlogs[lastIndex]?.imgUrl
+                    ? techBlogs[lastIndex]?.imgUrl
+                    : placeholder
+                }')`,
               }}
             >
               {/* <div className="card-category">City</div> */}
@@ -70,8 +74,11 @@ const LatestTech = () => {
             <div
               className="card"
               style={{
-                background:
-                  "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://cdn.sanity.io/images/7p2whiua/production/cd1880f9e2912a69f775ae517364d9f9f02eb7a5-1024x768.jpg')",
+                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${
+                  techBlogs[lastIndex - 1]?.imgUrl
+                    ? techBlogs[lastIndex - 1]?.imgUrl
+                    : placeholder
+                }')`,
               }}
             >
               {/* <div className="card-category">City</div> */}
