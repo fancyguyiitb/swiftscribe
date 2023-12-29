@@ -8,6 +8,7 @@ import ContentWrapper from "./components/contentWrapper/ContentWrapper";
 import NewBlog from "./components/newBlog/NewBlog";
 import WriteNewBlog from "./pages/writeNewBlog/WriteNewBlog";
 import DetailsPage from "./pages/detailsPage/DetailsPage";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <ContentWrapper>
         <BrowserRouter>
           <Header />
+          <Navbar/>
 
           <Routes>
             <Route path="/" element={<Home />}></Route>

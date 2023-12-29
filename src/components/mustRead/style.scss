@@ -11,6 +11,11 @@
       margin: 0;
       border: none;
       box-shadow: none;
+      h5 {
+        @media only screen and (max-width: 600px) {
+          margin-bottom: 50px;
+        }
+      }
     }
     .card {
       position: relative;
@@ -42,6 +47,10 @@
         -ms-border-radius: 0;
         -o-border-radius: 0;
         max-height: 149px;
+        @media only screen and (max-width: 600px) {
+          max-height: inherit;
+          margin-bottom: 10px;
+        }
       }
       .readMore {
         margin-top: 20px;
