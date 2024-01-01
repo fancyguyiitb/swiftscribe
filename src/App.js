@@ -9,6 +9,7 @@ import NewBlog from "./components/newBlog/NewBlog";
 import WriteNewBlog from "./pages/writeNewBlog/WriteNewBlog";
 import DetailsPage from "./pages/detailsPage/DetailsPage";
 import Navbar from "./components/navbar/Navbar";
+import CategoryPage from "./pages/categoryPage/CategoryPage";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <ContentWrapper>
         <BrowserRouter>
           <Header />
-          <Navbar/>
+          <Navbar />
 
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -27,9 +28,10 @@ function App() {
               element={<WriteNewBlog />}
             ></Route>
             <Route exact path="/blog/:id" element={<DetailsPage />}></Route>
+            <Route exact path="/:category" element={<CategoryPage/>}></Route>
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </ContentWrapper>
     </BlogState>
   );
