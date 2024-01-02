@@ -21,22 +21,22 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/stocks">Stock Market</NavLink>
+          <NavLink to="/Stocks">Stock Market</NavLink>
         </li>
         <li>
-          <NavLink to="/technology">Technology</NavLink>
+          <NavLink to="/Technology">Technology</NavLink>
         </li>
         <li>
-          <NavLink to="/politics">Politics</NavLink>
+          <NavLink to="/Politics">Politics</NavLink>
         </li>
         <li>
-          <NavLink to="/education">Education</NavLink>
+          <NavLink to="/Education">Education</NavLink>
         </li>
         <li>
-          <NavLink to="/health">Health</NavLink>
+          <NavLink to="/Health">Health</NavLink>
         </li>
         <li>
-          <NavLink to="/mustread">Must Read</NavLink>
+          <NavLink to="/Must Read">Must Read</NavLink>
         </li>
       </ul>
     </nav>

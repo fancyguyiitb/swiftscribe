@@ -97,10 +97,11 @@ const WriteNewBlog = () => {
 
           <div className="loginButton">
             <button
+            disabled={blogToAdd.title.length < 5 || blogToAdd.description.length < 5 || blogToAdd.tag.length === 0}
               type="button"
               className="btn btn-dark publish"
               onClick={handleAddBlog}
-            >
+            >   
               Publish Now!
             </button>
             <button

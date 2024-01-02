@@ -27,7 +27,12 @@ const Footer = () => {
             <div className="col-md-3 col-sm-6">
               <h5 className="fw-bold">About</h5>
               <p>
-              Welcome to SwiftScribe, your premier destination for engaging and insightful content powered by the robust MERN (MongoDB, Express.js, React, Node.js) stack. At SwiftScribe, we're passionate about fostering a vibrant community of writers. Join us on SwiftScribe  as we embark on a journey of discovery and learning together.
+                Welcome to SwiftScribe, your premier destination for engaging
+                and insightful content powered by the robust MERN (MongoDB,
+                Express.js, React, Node.js) stack. At SwiftScribe, we're
+                passionate about fostering a vibrant community of writers. Join
+                us on SwiftScribe as we embark on a journey of discovery and
+                learning together.
               </p>
             </div>
             <div className="col-md-3 col-sm-6">
@@ -53,7 +58,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="row text-center mt-5">
-            <p className="fw-bold">Copyright 2023: Sarthak Niranjan</p>
+            <p className="fw-bold mb-3">Copyright 2023: Sarthak Niranjan</p>
             <div className="socialIcons">
               <span className="icon">
                 <Link
@@ -78,13 +83,13 @@ const Footer = () => {
               </span>
             </div>
 
-            <p className="sourceCode">
+            <p className="sourceCode px-2 py-2">
               <a
                 // ref="noreferrer"
                 href="https://github.com/fancyguyiitb/swiftscribe"
                 target="_blank"
               >
-                Click to view Source Code
+                View Source Code
               </a>
             </p>
           </div>

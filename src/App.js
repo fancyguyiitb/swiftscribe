@@ -10,6 +10,8 @@ import WriteNewBlog from "./pages/writeNewBlog/WriteNewBlog";
 import DetailsPage from "./pages/detailsPage/DetailsPage";
 import Navbar from "./components/navbar/Navbar";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
+import LoginPage from "./pages/loginPage/LoginPage";
+import SignUpPage from "./pages/singUpPage/SignUpPage"
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
             ></Route>
             <Route exact path="/blog/:id" element={<DetailsPage />}></Route>
             <Route exact path="/:category" element={<CategoryPage/>}></Route>
+            <Route exact path="/login" element={<LoginPage/>}></Route>
+            <Route exact path="/signup" element={<SignUpPage/>}></Route>
           </Routes>
           <Footer />
         </BrowserRouter>

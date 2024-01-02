@@ -40,16 +40,17 @@ const BlogState = (props) => {
     });
     //   const json = response.json();
     console.log("Adding note...");
-    const newBlog = {
-      _id: "658803a3e8d02e0b9f39f9ac",
-      user: "65821c63b670bbd1f40973b4",
-      title: title,
-      description: description,
-      tag: tag,
-      imgUrl: imgUrl,
-      date: "2023-12-24T10:10:43.409Z",
-      __v: 0,
-    };
+    // const newBlog = {
+    //   _id: "658803a3e8d02e0b9f39f9ac",
+    //   user: "65821c63b670bbd1f40973b4",
+    //   title: title,
+    //   description: description,
+    //   tag: tag,
+    //   imgUrl: imgUrl,
+    //   date: "2023-12-24T10:10:43.409Z",
+    //   __v: 0,
+    // };
+    const newBlog = await response.json();
     //adding the new blog to existing array of blogs
     await setBlogs(blogs.concat(newBlog));
     console.log(blogs);
