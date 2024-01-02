@@ -29,8 +29,13 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req);
+
+    //creating a success boolean
+    let success = false;
+
     //displaying errors if any
     if (!errors.isEmpty()) {
+      success = false;
       return res.status(400).json({ errors: errors.array() });
     }
     //if validation successful, we crate the user
@@ -64,9 +69,11 @@ router.post(
         const data = { user: { id: user._id.toString() } };
         //generating Auth Token
         const authToken = jwt.sign(data, JWT_SECRET);
+        success = true;
         console.log(authToken);
         //sending over thr auth token
-        res.json({ authToken });
+        res.json({ authToken, success });
+
       });
     } catch (err) {
       //catching any errors, also the duplicate key error
@@ -80,7 +87,7 @@ router.post(
 );
 
 //---------------------------------ROUTE 2------------------------------------
-//create a user using: POST "/api/auth/login". Doesn't require LOGIN
+//login a user using: POST "/api/auth/login". Doesn't require LOGIN
 router.post(
   "/login",
   [
@@ -102,7 +109,12 @@ router.post(
     try {
       //wait and find if a user wth email exists
       let user = await User.findOne({ email });
+
+      //creating a success boolean
+      let success = false;
+
       if (!user) {
+        success = false;
         return res
           .status(400)
           .json({ error: "Please login with correct credentials" });
@@ -111,6 +123,7 @@ router.post(
       //use bcrypt js to compare password hashes
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
+        success = false;
         return res
           .status(400)
           .json({ error: "Please login with correct credentials" });
@@ -119,8 +132,9 @@ router.post(
       //generating auth token
       const data = { user: { id: user._id.toString() } };
       const authToken = jwt.sign(data, JWT_SECRET);
+      success = true;
       //sending over thr auth token
-      res.json({ authToken });
+      res.json({ authToken, success });
     } catch (error) {
       //catching any errors, also the duplicate key error
       console.log(error);

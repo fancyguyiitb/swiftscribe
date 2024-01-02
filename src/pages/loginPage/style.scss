@@ -20,8 +20,8 @@
   //   }
   .ring {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,8 @@
   .ring:hover i {
     border: 6px solid var(--clr);
     filter: drop-shadow(0 0 20px var(--clr));
-  }
+    -webkit-filter: drop-shadow(0 0 20px var(--clr));
+}
   @keyframes animate {
     0% {
       transform: rotate(0deg);
