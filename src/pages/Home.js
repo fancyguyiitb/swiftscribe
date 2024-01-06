@@ -16,9 +16,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const context = useContext(contextValue);
-  const { blogs, getAllBlogs } = context;
+  const { getAllBlogs, getUserBlogs } = context;
   useEffect(() => {
     if (localStorage.getItem("token")) {
+      getUserBlogs();
       getAllBlogs();
     } else {
       navigate("/login");

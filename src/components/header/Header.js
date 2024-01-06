@@ -40,6 +40,13 @@ const Header = () => {
               <button
                 type="button"
                 className="btn btn-outline-dark mx-2"
+                onClick={() => navigate("/userBlogs")}
+              >
+                All My Blogs
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-dark mx-2"
                 onClick={handleLogout}
               >
                 Logout

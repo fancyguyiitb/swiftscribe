@@ -98,7 +98,7 @@ const SignUpPage = () => {
           </div>
           <div className="links">
             {/* <a href="#">Forget Password</a> */}
-            <Link to="/login">Sign In</Link>
+            <Link to="/login">Login Instead</Link>
           </div>
         </div>
       </div>

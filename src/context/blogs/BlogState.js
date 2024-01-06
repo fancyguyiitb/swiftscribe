@@ -6,6 +6,7 @@ const BlogState = (props) => {
   const blogsInitial = [];
 
   const [blogs, setBlogs] = useState(blogsInitial);
+  const [userOnlyBlogs, setUserOnlyBlogs] = useState(blogsInitial);
 
   //CRUD functions
 
@@ -15,8 +16,7 @@ const BlogState = (props) => {
     const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
       method: "GET",
       headers: {
-        "auth-token":
-          localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
@@ -25,14 +25,28 @@ const BlogState = (props) => {
     // console.log(blogs);
   };
 
+  //Get all USER blogs
+  const getUserBlogs = async () => {
+    //API Call
+    const res = await fetch(`${host}/api/blogs/fetchalluserblogs`, {
+      method: "GET",
+      headers: {
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await res.json();
+    // console.log(json);
+    setUserOnlyBlogs(json);
+    // console.log(userOnlyBlogs);
+  };
+
   //Add a new blog
   const addBlog = async (title, description, tag, imgUrl) => {
     //API Call
     const response = await fetch(`${host}/api/blogs/newblog`, {
       method: "POST",
       headers: {
-        "auth-token":
-          localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag, imgUrl }),
     });
@@ -51,7 +65,7 @@ const BlogState = (props) => {
     const newBlog = await response.json();
     //adding the new blog to existing array of blogs
     await setBlogs(blogs.concat(newBlog));
-    console.log(blogs);
+    // console.log(blogs);
   };
 
   //Edit a blog
@@ -60,8 +74,7 @@ const BlogState = (props) => {
     const response = await fetch(`${host}/api/blogs/editblog/${id}`, {
       method: "POST",
       headers: {
-        "auth-token":
-          localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -88,7 +101,15 @@ const BlogState = (props) => {
   };
   return (
     <BlogContext.Provider
-      value={{ blogs, getAllBlogs, addBlog, editBlog, deleteBlog }}
+      value={{
+        blogs,
+        userOnlyBlogs,
+        getAllBlogs,
+        addBlog,
+        editBlog,
+        deleteBlog,
+        getUserBlogs,
+      }}
     >
       {props.children}
     </BlogContext.Provider>
