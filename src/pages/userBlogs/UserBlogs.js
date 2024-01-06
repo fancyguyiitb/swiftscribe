@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import "./style.scss";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router-dom";
 
@@ -29,6 +30,14 @@ const UserBlogs = () => {
                     data-color="blue"
                     data-radius="none"
                   >
+                    <div className="editLogo">
+                      <button>
+                        <AiFillEdit />
+                      </button>
+                      <button>
+                        <AiFillDelete />
+                      </button>
+                    </div>
                     <div class="content">
                       <h6 class="category">{userBlog.tag}</h6>
                       <h4
@@ -41,7 +50,9 @@ const UserBlogs = () => {
                       >
                         {userBlog.title}
                       </h4>
-                      <p class="description">{userBlog.description.slice(0,200) + "..."} </p>
+                      <p class="description">
+                        {userBlog.description.slice(0, 200) + "..."}{" "}
+                      </p>
                     </div>
                   </div>
                 </div>
