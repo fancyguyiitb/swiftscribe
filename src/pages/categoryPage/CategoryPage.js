@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
 import "./style.scss";
@@ -18,14 +18,20 @@ const CategoryPage = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, []);
+
   //   console.log(categoryBlogs);
   return (
     <>
-    <div className="detailsHeading">
+      <div className="detailsHeading">
         <p>{category} Blogs</p>
-    </div>
+      </div>
       <div className="row">
-        {categoryBlogs.length===0 && "No Blogs to display..."}
+        {categoryBlogs.length === 0 && "No Blogs to display..."}
         {categoryBlogs.reverse().map((blog) => {
           return (
             <div

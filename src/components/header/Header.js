@@ -6,6 +6,11 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 const Header = () => {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <ContentWrapper>
       <div className="topRow">
@@ -13,12 +18,34 @@ const Header = () => {
           <h1>SWIFTSCRIBE</h1>
         </div>
         <div className="loginButton">
-          <button type="button" className="btn btn-outline-dark mx-2" onClick={()=>navigate("/login")}>
-            Login
-          </button>
-          <button type="button" className="btn btn-outline-dark mx-2" onClick={()=>navigate("/signup")}>
-            Sign Up
-          </button>
+          {!localStorage.getItem("token") ? (
+            <>
+              <button
+                type="button"
+                className="btn btn-outline-dark mx-2"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-dark mx-2"
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                className="btn btn-outline-dark mx-2"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
     </ContentWrapper>

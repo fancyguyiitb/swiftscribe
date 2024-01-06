@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import ContentWrapper from "../components/contentWrapper/ContentWrapper";
 import "./style.scss";
 import HomeCards from "../components/homeCards/HomeCards";
@@ -12,15 +13,21 @@ import contextValue from "../context/blogs/BlogContext";
 import NewBlog from "../components/newBlog/NewBlog";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const context = useContext(contextValue);
   const { blogs, getAllBlogs } = context;
   useEffect(() => {
-    getAllBlogs();
+    if (localStorage.getItem("token")) {
+      getAllBlogs();
+    } else {
+      navigate("/login");
+    }
   }, []);
   // console.log(blogs);
   return (
     <>
-    {/* <h5 className="text-center">!! THIS PROJECT IS CURRENTLY UNDER DEVELOPMENT !!</h5> */}
+      {/* <h5 className="text-center">!! THIS PROJECT IS CURRENTLY UNDER DEVELOPMENT !!</h5> */}
       <NewBlog />
       <HomeCards />
       <hr />
