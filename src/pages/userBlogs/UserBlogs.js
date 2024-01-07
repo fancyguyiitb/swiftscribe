@@ -11,7 +11,7 @@ import Modal from "react-bootstrap/Modal";
 
 const UserBlogs = () => {
   const context = useContext(contextValue);
-  const { getUserBlogs, userOnlyBlogs, deleteBlog } = context;
+  const { getUserBlogs, userOnlyBlogs, deleteBlog, editBlog } = context;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -25,6 +25,7 @@ const UserBlogs = () => {
   const navigate = useNavigate();
 
   const [blogToEdit, setBlogToEdit] = useState({
+    id: "",
     newTitle: "",
     newDescription: "",
     newTag: "",
@@ -37,14 +38,20 @@ const UserBlogs = () => {
     // navigate("/")
   };
 
-  const handleEditBlog = (currentBlog) => {
-    setBlogToEdit({
-      newTitle: currentBlog.title,
-      newDescription: currentBlog.description,
-      newTag: currentBlog.tag,
-      newImgUrl: currentBlog.imgUrl,
-    });
-  };
+    const handleEditBlog = (editedBlog, id) => {
+      // setBlogToEdit({
+      //   id: currentBlog._id,
+      //   newTitle: currentBlog.title,
+      //   newDescription: currentBlog.description,
+      //   newTag: currentBlog.tag,
+      //   newImgUrl: currentBlog.imgUrl,
+      // });
+    //   await editBlog(id, title, description, tag, imgUrl);
+    // console.log(id, title, description, tag, imgUrl);
+    console.log(editedBlog);
+    console.log(id);
+    editBlog(editedBlog, id);
+    };
 
   const deleteSubmit = (id) => {
     confirmAlert({
@@ -229,8 +236,15 @@ const UserBlogs = () => {
                           <Button
                             variant="primary"
                             onClick={() => {
+                                handleEditBlog(
+                                // blogToEdit._id,
+                                // blogToEdit.newTitle,
+                                // blogToEdit.newDescription,
+                                // blogToEdit.newTag,
+                                // blogToEdit.newImgUrl
+                                blogToEdit, userBlog._id
+                              );
                               handleClose();
-                              handleEditBlog();
                             }}
                           >
                             Save Changes
@@ -268,7 +282,7 @@ const UserBlogs = () => {
                         {userBlog.title}
                       </h4>
                       <p className="description">
-                        {userBlog.description.slice(0, 200) + "..."}{" "}
+                        {userBlog?.description?.slice(0, 200) + "..."}{" "}
                       </p>
                     </div>
                   </div>

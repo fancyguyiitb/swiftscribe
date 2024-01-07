@@ -72,7 +72,11 @@ const BlogState = (props) => {
   };
 
   //Edit a blog
-  const editBlog = async (id, title, description, tag) => {
+  const editBlog = async (blogToEdit, id) => {
+    const title = blogToEdit.newTitle;
+    const description = blogToEdit.newDescription;
+    const tag = blogToEdit.newTag;
+    const imgUrl = blogToEdit.newImgUrl;
     //API Call
     const response = await fetch(`${host}/api/blogs/editblog/${id}`, {
       method: "PUT",
@@ -80,19 +84,25 @@ const BlogState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify({ title, description, tag }),
+      body: JSON.stringify({ title, description, tag, imgUrl }),
     });
-    // const json = await response.json();
+    const json = await response.json();
 
-    //Logic to edit in client side
-    for (let index = 0; index < blogs.length; index++) {
-      const element = blogs[index];
-      if (element._id === id) {
-        element.title = title;
-        element.description = description;
-        element.tag = tag;
-      }
-    }
+    // let tempBlog = JSON.parse(JSON.stringify(userOnlyBlogs));
+
+    // //Logic to edit in client side
+    // for (let index = 0; index < tempBlog.length; index++) {
+    //   const element = tempBlog[index];
+    //   if (element._id === id) {
+    //     tempBlog[index].title = title;
+    //     tempBlog[index].description = description;
+    //     tempBlog[index].tag = tag;
+    //     break;
+    //   }
+    // }
+    // setUserOnlyBlogs(tempBlog);
+    console.log(blogToEdit);
+    console.log(id);
   };
 
   //Delete a blog

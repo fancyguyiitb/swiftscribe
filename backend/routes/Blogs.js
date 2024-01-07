@@ -78,7 +78,7 @@ router.post(
 router.put("/editblog/:id", fetchuser, async (req, res) => {
   try {
     //destructuring new details from request body
-    const { title, description, tag } = req.body;
+    const { title, description, tag, imgUrl } = req.body;
 
     //create a new blog object
     const newBlog = {};
@@ -93,6 +93,10 @@ router.put("/editblog/:id", fetchuser, async (req, res) => {
     //if tag has been passed to be updates, add it to newBlog object
     if (tag) {
       newBlog.tag = tag;
+    }
+    //if imgUrl has been passed to be updates, add it to newBlog object
+    if (imgUrl) {
+      newBlog.imgUrl = imgUrl;
     }
 
     //looking for the Blog to be updated, using id sent in the req itself
