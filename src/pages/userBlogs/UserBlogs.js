@@ -48,8 +48,8 @@ const UserBlogs = () => {
       // });
     //   await editBlog(id, title, description, tag, imgUrl);
     // console.log(id, title, description, tag, imgUrl);
-    console.log(editedBlog);
-    console.log(id);
+    // console.log(editedBlog);
+    // console.log(id);
     editBlog(editedBlog, id);
     };
 

@@ -88,21 +88,21 @@ const BlogState = (props) => {
     });
     const json = await response.json();
 
-    // let tempBlog = JSON.parse(JSON.stringify(userOnlyBlogs));
+    let tempBlog = JSON.parse(JSON.stringify(userOnlyBlogs));
 
-    // //Logic to edit in client side
-    // for (let index = 0; index < tempBlog.length; index++) {
-    //   const element = tempBlog[index];
-    //   if (element._id === id) {
-    //     tempBlog[index].title = title;
-    //     tempBlog[index].description = description;
-    //     tempBlog[index].tag = tag;
-    //     break;
-    //   }
-    // }
-    // setUserOnlyBlogs(tempBlog);
-    console.log(blogToEdit);
-    console.log(id);
+    //Logic to edit in client side
+    for (let index = 0; index < tempBlog.length; index++) {
+      const element = tempBlog[index];
+      if (element._id === id) {
+        tempBlog[index].title = title;
+        tempBlog[index].description = description;
+        tempBlog[index].tag = tag;
+        break;
+      }
+    }
+    setUserOnlyBlogs(tempBlog);
+    // console.log(blogToEdit);
+    // console.log(id);
   };
 
   //Delete a blog
