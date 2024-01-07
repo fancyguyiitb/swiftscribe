@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import "./style.scss";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import contextValue from "../../context/blogs/BlogContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Button from "react-bootstrap/Button";
@@ -38,20 +38,20 @@ const UserBlogs = () => {
     // navigate("/")
   };
 
-    const handleEditBlog = (editedBlog, id) => {
-      // setBlogToEdit({
-      //   id: currentBlog._id,
-      //   newTitle: currentBlog.title,
-      //   newDescription: currentBlog.description,
-      //   newTag: currentBlog.tag,
-      //   newImgUrl: currentBlog.imgUrl,
-      // });
+  const handleEditBlog = (editedBlog, id) => {
+    // setBlogToEdit({
+    //   id: currentBlog._id,
+    //   newTitle: currentBlog.title,
+    //   newDescription: currentBlog.description,
+    //   newTag: currentBlog.tag,
+    //   newImgUrl: currentBlog.imgUrl,
+    // });
     //   await editBlog(id, title, description, tag, imgUrl);
     // console.log(id, title, description, tag, imgUrl);
     // console.log(editedBlog);
     // console.log(id);
     editBlog(editedBlog, id);
-    };
+  };
 
   const deleteSubmit = (id) => {
     confirmAlert({
@@ -84,6 +84,19 @@ const UserBlogs = () => {
     <>
       <div className="userBlogs">
         <p className="pageTitle">Your Blogs</p>
+
+        {!userOnlyBlogs.length && (
+          <div className="noBlogs text-center">
+            <p>You have not posted any blogs, try writing a new one now!</p>
+            <div className="loginButton">
+              <Link to="/writenewblog">
+                <button type="button" className="btn btn-outline-dark">
+                  Create New Blog
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
 
         <div className="row">
           {userOnlyBlogs.map((userBlog) => {
@@ -236,13 +249,14 @@ const UserBlogs = () => {
                           <Button
                             variant="primary"
                             onClick={() => {
-                                handleEditBlog(
+                              handleEditBlog(
                                 // blogToEdit._id,
                                 // blogToEdit.newTitle,
                                 // blogToEdit.newDescription,
                                 // blogToEdit.newTag,
                                 // blogToEdit.newImgUrl
-                                blogToEdit, userBlog._id
+                                blogToEdit,
+                                userBlog._id
                               );
                               handleClose();
                             }}
