@@ -16,6 +16,7 @@ const BlogState = (props) => {
     const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
       method: "GET",
       headers: {
+        "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),
       },
     });
@@ -31,6 +32,7 @@ const BlogState = (props) => {
     const res = await fetch(`${host}/api/blogs/fetchalluserblogs`, {
       method: "GET",
       headers: {
+        "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),
       },
     });
@@ -46,6 +48,7 @@ const BlogState = (props) => {
     const response = await fetch(`${host}/api/blogs/newblog`, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag, imgUrl }),
@@ -72,8 +75,9 @@ const BlogState = (props) => {
   const editBlog = async (id, title, description, tag) => {
     //API Call
     const response = await fetch(`${host}/api/blogs/editblog/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
+        "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
@@ -91,13 +95,25 @@ const BlogState = (props) => {
     }
   };
 
-  //Add a new blog
+  //Delete a blog
   const deleteBlog = async (id) => {
+    //API Call
+    const response = await fetch(`${host}/api/blogs/deleteblog/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await response.json();
+    // console.log(json);
+    // setBlogs(json);
+
     console.log("Deleting blog with id: " + id);
-    const newBlogs = blogs.filter((item) => {
+    const newBlogs = await userOnlyBlogs.filter((item) => {
       return item._id !== id;
     });
-    setBlogs(newBlogs);
+    setUserOnlyBlogs(newBlogs);
   };
   return (
     <BlogContext.Provider
