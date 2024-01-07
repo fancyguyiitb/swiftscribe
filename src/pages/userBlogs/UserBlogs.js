@@ -5,10 +5,18 @@ import contextValue from "../../context/blogs/BlogContext";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 const UserBlogs = () => {
   const context = useContext(contextValue);
   const { getUserBlogs, userOnlyBlogs, deleteBlog } = context;
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     getUserBlogs();
     console.log(userOnlyBlogs);
@@ -16,12 +24,12 @@ const UserBlogs = () => {
 
   const navigate = useNavigate();
 
-  //   const [blogToAdd, setBlogToAdd] = useState({
-  //     title: "",
-  //     description: "",
-  //     tag: "",
-  //     imgUrl: "",
-  //   });
+  const [blogToEdit, setBlogToEdit] = useState({
+    newTitle: "",
+    newDescription: "",
+    newTag: "",
+    newImgUrl: "",
+  });
 
   const handleDeleteBlog = async (id) => {
     await deleteBlog(id);
@@ -29,28 +37,41 @@ const UserBlogs = () => {
     // navigate("/")
   };
 
-  const submit = (id) => {
+  const handleEditBlog = (currentBlog) => {
+    setBlogToEdit({
+      newTitle: currentBlog.title,
+      newDescription: currentBlog.description,
+      newTag: currentBlog.tag,
+      newImgUrl: currentBlog.imgUrl,
+    });
+  };
+
+  const deleteSubmit = (id) => {
     confirmAlert({
       title: "Confirm Deletion",
       message: "Are you sure to delete this blog?",
       buttons: [
         {
           label: "Yes",
-          onClick: () => {handleDeleteBlog(id)},
+          onClick: () => {
+            handleDeleteBlog(id);
+          },
         },
         {
           label: "No",
-          onClick: () => {},
+          onClick: () => {
+            navigate("/userBlogs");
+          },
         },
       ],
     });
   };
 
-  //whenever any field updated, overwrite that field into the new temporary blog, and let the other things be as it is from before
-  //   const onChange = (event) => {
-  //     setBlogToAdd({ ...blogToAdd, [event.target.name]: event.target.value });
-  //     // console.log(blogToAdd);
-  //   };
+  //   whenever any field updated, overwrite that field into the new temporary blog, and let the other things be as it is from before
+  const onChange = (event) => {
+    setBlogToEdit({ ...blogToEdit, [event.target.name]: event.target.value });
+    // console.log(blogToAdd);
+  };
 
   return (
     <>
@@ -72,9 +93,150 @@ const UserBlogs = () => {
                     data-radius="none"
                   >
                     <div className="editLogo">
-                      <button>
+                      {/* <button>
                         <AiFillEdit />
-                      </button>
+                      </button> */}
+                      <Button
+                        variant="primary"
+                        className="editLogoBtn"
+                        onClick={() => {
+                          setBlogToEdit({
+                            newTitle: userBlog.title,
+                            newDescription: userBlog.description,
+                            newTag: userBlog.tag,
+                            newImgUrl: userBlog.imgUrl,
+                          });
+                          handleShow();
+                        }}
+                      >
+                        <AiFillEdit />
+                      </Button>
+
+                      <Modal show={show} onHide={handleClose} centered>
+                        <Modal.Header closeButton>
+                          <Modal.Title className="fw-bold">
+                            Edit Blog
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          {/* <Form>
+                            <Form.Group
+                              className="mb-3"
+                              controlId="exampleForm.ControlInput1"
+                            >
+                              <Form.Label>Title</Form.Label>
+                              <Form.Control
+                                type="text"
+                                placeholder=""
+                                autoFocus
+                              />
+                            </Form.Group>
+                            <Form.Group
+                              className="mb-3"
+                              controlId="exampleForm.ControlInput1"
+                            >
+                              <Form.Label>Thumbnail URL</Form.Label>
+                              <Form.Control
+                                type="text"
+                                placeholder=""
+                                autoFocus
+                              />
+                            </Form.Group>
+                            <Form.Group
+                              className="mb-3"
+                              controlId="exampleForm.ControlTextarea1"
+                            >
+                              <Form.Label>Example textarea</Form.Label>
+                              <Form.Control as="textarea" rows={5} />
+                            </Form.Group>
+                          </Form> */}
+                          <Form>
+                            <div className="blogForm">
+                              <div className="mb-3">
+                                <label htmlFor="title" className="form-label">
+                                  Title
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="newTitle"
+                                  name="newTitle"
+                                  placeholder="Blog title here..."
+                                  onChange={onChange}
+                                  value={blogToEdit.newTitle}
+                                />
+                              </div>
+                              <div className="mb-3">
+                                <label htmlFor="imgUrl" className="form-label">
+                                  Thumbnail URL
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="newImgUrl"
+                                  name="newImgUrl"
+                                  value={blogToEdit.newImgUrl}
+                                  onChange={onChange}
+                                />
+                              </div>
+                              <div className="mb-3">
+                                <label
+                                  htmlFor="description"
+                                  className="form-label"
+                                >
+                                  Description
+                                </label>
+                                <textarea
+                                  className="form-control"
+                                  id="newDescription"
+                                  name="newDescription"
+                                  rows="5"
+                                  onChange={onChange}
+                                  value={blogToEdit.newDescription}
+                                ></textarea>
+                              </div>
+                              <div className="mb-3">
+                                <label
+                                  htmlFor="exampleDataList"
+                                  className="form-label"
+                                >
+                                  Tags
+                                </label>
+                                <input
+                                  className="form-control"
+                                  list="datalistOptions"
+                                  id="newTag"
+                                  name="newTag"
+                                  onChange={onChange}
+                                  value={blogToEdit.newTag}
+                                />
+                                <datalist id="datalistOptions">
+                                  <option value="Health" />
+                                  <option value="Education" />
+                                  <option value="Stocks" />
+                                  <option value="Technology" />
+                                  <option value="Must Read" />
+                                  <option value="Politics" />
+                                </datalist>
+                              </div>
+                            </div>
+                          </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Close
+                          </Button>
+                          <Button
+                            variant="primary"
+                            onClick={() => {
+                              handleClose();
+                              handleEditBlog();
+                            }}
+                          >
+                            Save Changes
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
                       {/* <button
                         onClick={(e) => {
                           e.preventDefault();
@@ -87,7 +249,7 @@ const UserBlogs = () => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          submit(userBlog._id);
+                          deleteSubmit(userBlog._id);
                         }}
                       >
                         <AiFillDelete />
@@ -116,11 +278,6 @@ const UserBlogs = () => {
           })}
         </div>
       </div>
-      {/* {userOnlyBlogs.map((userBlog) => {
-        return (
-            <div>{userBlog.tag}</div>
-        );
-      })} */}
     </>
   );
 };
