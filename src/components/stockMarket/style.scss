@@ -11,10 +11,11 @@
     width: 23vw;
 
     margin-bottom: 30px;
-    @media only screen and (max-width: 600px) {
+
+    max-width: 280px;
+    @media (max-width: 600px) {
       max-width: 380px;
     }
-    max-width: 280px;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -27,7 +28,7 @@
   img {
     max-height: 157px;
     @media only screen and (max-width: 600px) {
-      height: 400px;
+      height: 500px;
     }
   }
 

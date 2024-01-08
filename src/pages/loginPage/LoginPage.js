@@ -57,6 +57,7 @@ const LoginPage = () => {
           <h2 className="fw-bold">Login</h2>
           <div className="inputBx">
             <h5 className="fieldTitle">Your Email</h5>
+            <p>For guest login, use email: evelyn.garcia123@example.com</p>
             <input
               type="text"
               placeholder="Email"
@@ -68,6 +69,7 @@ const LoginPage = () => {
           </div>
           <div className="inputBx">
           <h5 className="fieldTitle">Your Password</h5>
+          <p>For guest login, use password: Rainbow#98*!</p>
             <input
               value={credentials.password}
               type="password"

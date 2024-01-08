@@ -6,6 +6,7 @@
   text-align: center;
   height: 80vh;
   @media only screen and (max-width: 600px) {
+    margin-top: 60px;
     height: 30vh;
   }
 
@@ -17,6 +18,9 @@
     font-weight: 500;
     font-size: 20px;
     font-style: italic;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 60px;
+    }
   }
 }
 
