@@ -22,6 +22,10 @@
     position: relative;
     width: 600px;
     height: 600px;
+    @media (max-width: 600px) {
+      width: 550px;
+      height: 550px;
+    }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +52,7 @@
     border: 6px solid var(--clr);
     filter: drop-shadow(0 0 20px var(--clr));
     -webkit-filter: drop-shadow(0 0 20px var(--clr));
-}
+  }
   @keyframes animate {
     0% {
       transform: rotate(0deg);

@@ -15,7 +15,7 @@ const Header = () => {
     <ContentWrapper>
       <div className="topRow">
         <div className="topHeading">
-          <h1>SWIFTSCRIBE</h1>
+          <h1 onClick={()=>navigate("/")}>SWIFTSCRIBE</h1>
         </div>
         <div className="loginButton">
           {!localStorage.getItem("token") ? (

@@ -1,65 +1,63 @@
-.callToAction {
+.callToActionContainer {
   background-color: #fff;
-  height: 100px;
-  margin-top: 40px;
-  display: flex;
-  padding: 0 40px;
   position: relative;
-  @media only screen and (max-width: 600px) {
-    // margin-top: 100px;
-    top: 60px;
+
+  .registerImg {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
 
-  img {
-    width: 100px;
-    height: 100px;
-  }
   .callToActionText {
-    margin-left: 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    @media only screen and (max-width: 600px) {
-      margin-left: 1vw;
-    }
-
     h4 {
-      padding: 0;
-      margin: 0;
-    }
-
-    p {
-      padding: 0;
-      margin: 0;
-      font-size: 12px;
-      color: var(--black-lighter);
+      font-weight: bold;
+      @media (max-width: 600px) {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      @media (min-width: 600px) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+      }
     }
   }
 
-  .loginButton {
-    // align-items: right;
-    // margin: 19px 0;
+  .signUpBtn {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-right: 10vw;
-
+    align-items: center;
     button {
+      @media (min-width: 600px) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+      }
+      @media (max-width: 600px) {
+        margin-bottom: 20px;
+      }
+
       border-radius: 0;
       -webkit-border-radius: 0;
       -moz-border-radius: 0;
       -ms-border-radius: 0;
       -o-border-radius: 0;
       font-size: 18px;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
+
       transition: all 0.3s ease-in-out;
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;

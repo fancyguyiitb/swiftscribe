@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div className="footerBody">
           <div className="row">
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-3 col-sm-12">
               <h5 className="fw-bold">About</h5>
               <p>
                 Welcome to SwiftScribe, your premier destination for engaging
